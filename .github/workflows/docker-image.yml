@@ -27,7 +27,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: capino/${{ github.event.pull_request.base.repo.name }}
+          images: capino/${{ github.event.repository.name }}
           tags: |
             type=sha,prefix={{branch}}-
             type=raw,value=latest
@@ -45,5 +45,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: capino/${{ github.event.pull_request.base.repo.name }}
+          repository: capino/${{ github.event.repository.name }}
     
